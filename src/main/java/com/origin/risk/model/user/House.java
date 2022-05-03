@@ -1,4 +1,4 @@
-package com.origin.risk.model;
+package com.origin.risk.model.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -2,8 +2,8 @@ package com.origin.risk.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.origin.risk.dto.request.validator.ValueOfEnum;
-import com.origin.risk.model.MaritalStatusEnum;
-import com.origin.risk.model.UserInfo;
+import com.origin.risk.model.user.MaritalStatusEnum;
+import com.origin.risk.model.user.UserInfo;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

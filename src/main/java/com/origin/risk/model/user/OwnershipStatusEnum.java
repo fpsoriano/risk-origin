@@ -1,4 +1,4 @@
-package com.origin.risk.model;
+package com.origin.risk.model.user;
 
 import lombok.extern.slf4j.Slf4j;
 

@@ -1,7 +1,7 @@
 package com.origin.risk.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.origin.risk.model.Vehicle;
+import com.origin.risk.model.user.Vehicle;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
