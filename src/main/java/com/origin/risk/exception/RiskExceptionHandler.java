@@ -8,6 +8,7 @@ import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,7 +25,7 @@ public class RiskExceptionHandler {
 
   private static final String DEFAULT_ERROR_HANDLING_MESSAGE = "Handling {}: {}";
 
-  @ExceptionHandler(BindException.class)
+  @ExceptionHandler({BindException.class, MethodArgumentNotValidException.class})
   @ResponseStatus(value = HttpStatus.BAD_REQUEST)
   @ResponseBody
   protected Error handleBindException(final BindException ex) {
