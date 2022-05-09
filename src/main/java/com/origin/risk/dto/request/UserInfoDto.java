@@ -18,6 +18,8 @@ import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
 import java.util.List;
 
+import static com.origin.risk.utils.constant.DtoConstant.*;
+
 
 @Data
 @Builder
@@ -25,11 +27,6 @@ import java.util.List;
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserInfoDto {
-
-    private final static String POSITIVE_OR_ZERO_ERROR = "equal or greater than 0";
-    private final static String REQUIRED_ERROR = "is a required field";
-
-    private final static String POSITIVE_OR_ZERO_DESCRIPTION = "An integer equal or greater than 0";
 
     @NotNull(message = REQUIRED_ERROR)
     @PositiveOrZero(message = POSITIVE_OR_ZERO_ERROR)
@@ -50,7 +47,7 @@ public class UserInfoDto {
     private Integer income;
 
     @ValueOfEnum(enumClass = MaritalStatusEnum.class)
-    @NotBlank
+    @NotBlank(message = REQUIRED_ERROR)
     @Schema(type = "String", allowableValues = { "single", "married" })
     private String marital_status;
 
@@ -66,11 +63,11 @@ public class UserInfoDto {
         return UserInfo.builder()
                 .age(age)
                 .dependents(dependents)
-                .house(house.toHouse())
+                .house(house != null ? house.toHouse() : null)
                 .income(income)
                 .marital_status(marital_status)
                 .risk_questions(risk_questions)
-                .vehicle(vehicle.toVehicle())
+                .vehicle(vehicle != null ? vehicle.toVehicle() : null)
                 .build();
     }
 

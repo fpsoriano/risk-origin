@@ -17,4 +17,5 @@ public class ProfileDto {
     private String disability;
     private String home;
     private String life;
+
 }

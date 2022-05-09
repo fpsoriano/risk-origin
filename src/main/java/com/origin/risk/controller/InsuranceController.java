@@ -1,6 +1,8 @@
 package com.origin.risk.controller;
 
 import com.origin.risk.dto.request.UserInfoDto;
+import com.origin.risk.dto.response.ProfileDto;
+import com.origin.risk.service.InsuranceService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -18,6 +20,12 @@ import javax.validation.Valid;
 @RequestMapping("/insurance")
 public class InsuranceController {
 
+    private final InsuranceService insuranceService;
+
+    public InsuranceController(final InsuranceService insuranceService) {
+        this.insuranceService = insuranceService;
+    }
+
     @Operation(
             summary = "Determines the profile according to the user information",
             responses = {
@@ -34,8 +42,9 @@ public class InsuranceController {
                             content = @Content(schema = @Schema(implementation = Error.class)))
             })
     @PostMapping("/profile")
-    public ResponseEntity<String> combate(
+    public ResponseEntity<ProfileDto> combate(
             @Valid @RequestBody final UserInfoDto userInfo) {
-        return ResponseEntity.status(HttpStatus.OK).body("");
+        var profile = insuranceService.riskProfile(userInfo.toUserInfo());
+        return ResponseEntity.status(HttpStatus.OK).body(profile.toProfileDto());
     }
 }

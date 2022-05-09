@@ -16,6 +16,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<springdoc-openapi-ui.version>1.6.0</springdoc-openapi-ui.version>
+		<com.google.code.gson.version>2.9.0</com.google.code.gson.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -44,6 +45,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>${com.google.code.gson.version}</version>
 		</dependency>
 	</dependencies>
 

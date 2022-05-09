@@ -8,9 +8,7 @@ import java.util.IllegalFormatException;
 public enum ErrorCodes {
   MALFORMED_REQUEST(1, "Malformed request."),
   INTERNAL_SERVER_ERROR(2, "Internal Server Error."),
-  METODO_NAO_PERMITIDO(3, "Method not allowed."),
-  INVALID_MARITAL_STATUS(4, "Invalid marital status"),
-  INVALID_OWNERSHIP_STATUS(5, "Invalid ownership status");
+  METHOD_NOT_ALLOWED(3, "Method not allowed.");
 
   private static final Logger LOG = LoggerFactory.getLogger(ErrorCodes.class);
 

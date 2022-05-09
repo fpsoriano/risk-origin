@@ -1,0 +1,7 @@
+version: "3.2"
+services:
+  app:
+    image: risk-docker
+    container_name: risk-app
+    ports:
+      - 8082:8082
